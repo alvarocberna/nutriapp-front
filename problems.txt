@@ -1,0 +1,5 @@
+PROBLEMAS POR RESOLVER
+
+1 - Se debe diferenciar entre usuario y paciente, por ahora se utiliza Usuario para todo
+2 - Se debe añadir el genero tanto dentro del type de Usuario, como en el Interface IFormInput (formulario nuevo paciente y usuario api)
+    además de añadirlo en las entities y DTOs del backend y la entidad de la base de datos.
