@@ -4,15 +4,34 @@ import Link from 'next/link';
 //react
 import React from 'react';
 import { useState } from 'react';
+import { useForm, FormProvider, SubmitHandler } from "react-hook-form" 
 //fontawesome
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faClipboardList, faPerson, faCalculator, faCarrot, faCheck, faCircle } from '@fortawesome/free-solid-svg-icons'
-//local
+//shared
 import {ProfessionalCont, TitleSec, TitleSubSec, HeadSubSec, BodySubSec, RowSubSec, ContSubSec, InputStandar, InputOutlined} from '../../../../shared'
+//features
 import {Anamnesis, Mediciones, Requerimientos, Planificacion} from '../../../../features';
+import {ConsultaService, CreateFullConsultaForm, CreateMedicionesForm} from '../../../../features';
+//app
 import '../../../globals.css'
 
 export default function NuevaSesion(){
+
+    const methods = useForm<CreateFullConsultaForm>({
+        defaultValues: {
+        // anamnesis: {},
+        mediciones: CreateMedicionesForm as any,
+        // requerimientos: {},
+        // planificacion: {}
+        }
+    });
+
+    const onSubmit = (data: CreateFullConsultaForm) =>  {
+        console.log("Datos completos:", data);
+        // Aquí llamas a tu servicio/endpoint
+        ConsultaService.createConsulta(data);
+    };
 
     const [etapa, setEtapa] = useState(1);
     const [anamnesis, setAnamnesis] = useState(true);
@@ -81,7 +100,7 @@ export default function NuevaSesion(){
         }
     }
 
-       const prevEtapa = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const prevEtapa = (e: React.MouseEvent<HTMLButtonElement>) => {
         if(etapa > 1){
             const etapaLvl = etapa - 1;
             setEtapa(etapaLvl);
@@ -180,26 +199,33 @@ export default function NuevaSesion(){
                 </div>
             </div>
 
-            {
-                anamnesis &&
-                <Anamnesis/>
-            }
-            {
-                mediciones &&
-                <Mediciones/>
-            }
-            {
-                requerimientos &&
-                <Requerimientos/>
-            }
-            {
-                planificacion &&
-                <Planificacion/>
-            }
-            {
-                preview &&
-                <div>preview</div>
-            }
+            {/* Formulario */}
+             <FormProvider {...methods}>
+                <form onSubmit={methods.handleSubmit(onSubmit)}> 
+                    {
+                        anamnesis &&
+                        <Anamnesis/>
+                    }
+                    {
+                        mediciones &&
+                        <Mediciones/>
+                    }
+                    {
+                        requerimientos &&
+                        <Requerimientos/>
+                    }
+                    {
+                        planificacion &&
+                        <Planificacion/>
+                    }
+                    {
+                        preview &&
+                        <div>preview</div>
+                    }
+                    <button type="submit">Guardar consulta</button>
+                </form>
+            </FormProvider>
+
 
             <div className='w-full flex justify-between mt-10'>
                 <div className='w-[200px] h-[30px]'>

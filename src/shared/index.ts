@@ -1,17 +1,16 @@
 
-import Navbar from "./components/navbar";
-import ProfessionalCont from "./components/cont-profesional";
-import TitleSec from "./components/title-sec";
-import TitleSubSec from "./components/title-sub-sec";
-import HeadSubSec from "./components/head-sub-sec";
-import BodySubSec from "./components/body-sub-sec";
-import RowSubSec from "./components/row-sub-sec";
-import DivSubSec from "./components/div-sub-sec";
-import ContSubSec from "./components/cont-sub-sec";
-import InputStandar from "./components/input-standar";
-import InputOutlined from "./components/input-outlined";
-import BoxSubSec from "./components/box-sub-sec";
-
-
-export { Navbar, ProfessionalCont, TitleSec, TitleSubSec, HeadSubSec, RowSubSec, DivSubSec,
-    ContSubSec, InputStandar, InputOutlined, BodySubSec, BoxSubSec }
+export * from './components/navbar-profesional';
+export * from './components/navbar-home';
+export * from './components/cont-profesional'
+export * from './components/cont-home';
+export * from './components/cont-general'
+export * from './components/title-sec'
+export * from './components/title-sub-sec'
+export * from './components/body-sub-sec'
+export * from './components/box-sub-sec'
+export * from './components/cont-sub-sec'
+export * from './components/div-sub-sec'
+export * from './components/head-sub-sec'
+export * from './components/input-outlined'
+export * from './components/input-standar'
+export * from './components/row-sub-sec'

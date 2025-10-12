@@ -2,86 +2,65 @@
 //react
 import React from 'react';
 //local
-import { TitleSubSec, HeadSubSec, BodySubSec, ContSubSec, InputOutlined} from '../../../shared'
-// import '../../../globals.css'
+import { TitleSubSec, HeadSubSec, BodySubSec, ContSubSec, InputOutlined} from '../../../../shared'
+import '../../../../app/globals.css'
 
-export default function Planificacion(){
+export function Requerimientos(){
     return(
         <div>
             <ContSubSec>
                 <HeadSubSec>
                     <div className='w-[90%] m-auto'>
-                        <TitleSubSec title="Planificacion"/>
+                        <TitleSubSec title="Cálculo de requerimientos"/>
                     </div>
                 </HeadSubSec>   
                 <BodySubSec>
                     <div className='w-[90%] m-auto]'>
-                        <div className="grid grid-cols-5 grid-rows-4 border border-black">
+                        <div className="grid grid-cols-3 grid-rows-3 border border-black">
                             {/* fila 1 */}
                             <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-    
+                                <p>Item</p>
                             </div>
                             <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p>Calorías</p>
+                                Valor
                             </div>
                             <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p>Proteínas</p>
-                            </div>
-                            <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p>Carbohidratos</p>
-                            </div>
-                            <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p>Lípidos</p>
+                                Aporte
                             </div>
                             {/* fila 2 */}
                             <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p>Aporte</p>
+                                <p className='w-full pl-5 text-left'>TMB</p>
                             </div>
                             <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p></p>
+                                <select className='w-full h-full text-center'>
+                                    <option>FAO</option>
+                                    <option>HB</option>
+                                    <option>OMS</option>
+                                </select>
                             </div>
                             <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p></p>
-                            </div>
-                            <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p></p>
-                            </div>
-                            <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p></p>
+                                <p>1400</p>
                             </div>
                             {/* fila 3 */}
                             <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p>Requerimientos</p>
+                                <p className='w-full pl-5 text-left'>Actividad física</p>
                             </div>
                             <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p></p>
+                                <p>1.4</p>
                             </div>
                             <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p></p>
-                            </div>
-                            <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p></p>
-                            </div>
-                            <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p></p>
+                                <p>560</p>
                             </div>
                             {/* fila 4 */}
                             <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p>Adecuación</p>
+                                <p className='w-full pl-5 text-left'>Total</p>
                             </div>
                             <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
                                 <p></p>
                             </div>
                             <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p></p>
+                                <p>1960</p>
                             </div>
-                            <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p></p>
-                            </div>
-                            <div className='h-[40px] border flex justify-center items-center border-black text-center text-black text-md'>
-                                <p></p>
-                            </div>
-                     
                         </div>
                     </div>
                 </BodySubSec>

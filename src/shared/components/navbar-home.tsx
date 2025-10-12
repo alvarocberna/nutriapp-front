@@ -6,45 +6,41 @@ import { faCalendarDays, faClipboard, faAppleWhole, faChild, faChartSimple, faUs
 import Link from "next/link";
 
 
-export default function Navbar() {
+export function NavbarHome() {
   const [open, setOpen] = useState(false);
 
   // categorías del menú
   const navInfo = [
-    { nombre: "Agenda", ruta: "/agenda", icon: faCalendarDays },
-    { nombre: "Pacientes", ruta: "/pacientes", icon: faClipboard },
-    { nombre: "Plan nutricional", ruta: "#", icon: faAppleWhole },
-    { nombre: "Antropometría", ruta: "#", icon: faChild },
-    { nombre: "Estadística", ruta: "#", icon: faChartSimple },
-    { nombre: "Perfil", ruta: "#", icon: faUser },
-    { nombre: "Salir", ruta: "/", icon: faSignOutAlt },
+    { nombre: "Iniciar Sesión", ruta: "/inicio-sesion", icon: faCalendarDays },
+    { nombre: "Registro", ruta: "/registro", icon: faClipboard },
   ];
 
   // list item
   const navList = navInfo.map((info, index) => (
-    <li key={index}>
-      <Link
-        href={info.ruta}
-        className="block flex items-center py-3 px-4 text-primary rounded-lg font-medium hover:bg-tertiary"
-        onClick={() => setOpen(false)}
-      >
-        <FontAwesomeIcon icon={info.icon} className="me-2" style={{width: '16px', height: '16px'}}/>
-        <p className="">
-          {info.nombre}
-        </p>
+    <li key={index} className="flex w-[220px] mx-2 h-[60px]">
+      <Link href={info.ruta} className="flex w-full h-[50px] m-auto text-primary rounded-lg font-medium hover:bg-tertiary" onClick={() => setOpen(false)}>
+        {/* <FontAwesomeIcon icon={info.icon} className="me-2" style={{width: '16px', height: '16px'}}/> */}
+        <p className="m-auto"> {info.nombre} </p>
       </Link>
     </li>
   ));
 
   return (
     <div className="">
+
       {/* Desktop: Menu */}
-      <div className="hidden md:flex flex-col w-[280px] h-screen bg-white border-r border-gray-300 fixed left-0 top-0 z-20">
-        <div className="p-6 border-b border-gray-300">
-          <h1 className="text-2xl font-bold text-blue-600">NUTRIAPP</h1>
+      <div className="hidden md:flex flex-col md:flex-row w-full h-[60px] bg-white left-0 top-0 z-20">
+        {/* Logo */}
+        <div className="flex h-[60px] w-1/4">
+          <Link href="/" className="m-auto">
+            <h1 className="text-2xl font-bold text-blue-600">NUTRIAPP</h1>
+          </Link>
         </div>
-        <nav className="p-6 flex-1">
-          <ul className="space-y-4">{navList}</ul>
+        {/* Menú */}
+        <nav className="flex w-3/4 justify-end h-[60px]">
+          <ul className="flex flex-row h-[60px] ">
+            {navList}
+          </ul>
         </nav>
       </div>
 

@@ -3,3 +3,7 @@ PROBLEMAS POR RESOLVER
 1 - Se debe diferenciar entre usuario y paciente, por ahora se utiliza Usuario para todo
 2 - Se debe añadir el genero tanto dentro del type de Usuario, como en el Interface IFormInput (formulario nuevo paciente y usuario api)
     además de añadirlo en las entities y DTOs del backend y la entidad de la base de datos.
+3 - Hay inconsistencias con los estilos, por ejemplo la clase primary-btn podría ser un modulo con un alto y ancho por defecto
+    que además se pudiese modificar, en lugar de tener que guardarlo dentro de un div al cual hay que definirle alto y ancho. los
+    mismo pasa con otros componentes como cont-global, o cont-profesional, que por defecto tiene un anchdel 80%, cuando este podría 
+    ser el valor por defecto pero que se pudiese modificar.
