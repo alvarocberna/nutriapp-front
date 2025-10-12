@@ -1,6 +1,7 @@
 
 
 export interface Usuario {
+    id: string;
     rut: number;
     dv_rut: string;
     nombre_primero: string;

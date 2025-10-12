@@ -1,9 +1,13 @@
 
-export default function TitleSubSec(props: any){
-    const title = props.title;
+interface ContProps {
+  title: string
+  width?: string // 👈 Nueva prop opcional
+}
+
+export function TitleSubSec({ title, width = '100%' }: ContProps){
     return(
-        <div className="">
-            <h1 className="text-xl font-bold text-[#414141]">{title}</h1>
+        <div className={`w-[${width}] m-auto`}>
+            <h1 className={`w-[full] text-xl font-bold text-[#414141]`}>{title}</h1>
         </div>
     )
 }

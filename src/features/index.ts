@@ -1,9 +1,18 @@
 
-import Anamnesis from "./pacientes/components/anamnesis";
-import Mediciones from "./pacientes/components/mediciones";
-import Requerimientos from "./pacientes/components/requerimientos";
-import Planificacion from "./pacientes/components/planificacion";
-import FormNuevoPaciente from "./pacientes/components/form-nuevo-paciente";
-// import Preview from "./ficha/preview";
+//usuario - componentes paciente
+export * from './usuario/components/paciente/anamnesis';
+export * from './usuario/components/paciente/ficha-clinica';
+export * from './usuario/components/paciente/form-nuevo-paciente';
+export * from './usuario/components/paciente/mediciones';
+export * from './usuario/components/paciente/planificacion';
+export * from './usuario/components/paciente/requerimientos';
+export * from './usuario/components/profesional/form-nuevo-profesional';
+export * from "./usuario/api/usuario.api";
+export * from "./usuario/types/usuario";
 
-export {Anamnesis, Mediciones, Requerimientos, Planificacion, FormNuevoPaciente}
+//consulta
+export * from "./consulta/api/consulta.api";
+export * from "./consulta/types/consulta";
+//inicio sesion
+export * from "./auth/components/form-inicio-sesion";
+

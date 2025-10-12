@@ -13,7 +13,7 @@ import {ProfessionalCont, TitleSec, HeadSubSec, RowSubSec, DivSubSec, ContSubSec
 //featured
 import { UsuarioService } from "@/features/usuario/api/usuario.api";
 import { Usuario } from "@/features/usuario/types/usuario";
-import FichaClinica from "@/features/pacientes/components/ficha-clinica";
+import FichaClinica from "@/features/usuario/components/paciente/ficha-clinica";
 
 
 export default function FichaPaciente(){

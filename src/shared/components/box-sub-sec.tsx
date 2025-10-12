@@ -1,5 +1,5 @@
 
-export default function BoxSubSec(
+export function BoxSubSec(
     {children}: Readonly<{children: React.ReactNode;}>
 ){
     return(

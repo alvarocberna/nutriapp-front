@@ -2,7 +2,7 @@
 //next
 import Link from "next/link";
 
-export default function RowSubSec(
+export function RowSubSec(
     {children}: Readonly<{children: React.ReactNode;}>
 ){
 

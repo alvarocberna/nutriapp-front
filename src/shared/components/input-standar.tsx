@@ -1,5 +1,5 @@
 
-export default function InputStandar(props: any){
+export function InputStandar(props: any){
     const label = props.label;
     return(
           <div className="relative z-0 mt-3">

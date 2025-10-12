@@ -1,24 +1,24 @@
-import {Usuario} from '../../features/usuario/types/usuario'
-const URL_1 = 'http://localhost:3000';
+const URL = 'http://localhost:3000';
 
 export async function apiFetch<T>(
     endpoint: string,
-    mehtod?: string,
-    data?: Usuario 
+    method?: string,
+    data?: any,
+    credentials: RequestCredentials = 'include'
 ): Promise<T>{
 
-    const res = await fetch(`${URL_1}/${endpoint}`, {
-        method: mehtod,
+    const res = await fetch(`${URL}/${endpoint}`, {
+        method: method,
+        credentials: credentials,
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
+        body: data ? JSON.stringify(data) : undefined,
     })
 
     if (!res.ok) {
         const errorData = await res.json().catch(() => ({}));
-        throw new Error(errorData.message || "Error en la petici    ón");
+        throw new Error(errorData.message || "Error en la petición");
     }else{
         console.log('peticion correcta')
-        console.log(res)
     }
 
     return res.json() as Promise<T>;

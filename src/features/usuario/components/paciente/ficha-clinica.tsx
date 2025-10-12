@@ -1,7 +1,7 @@
 //local (features)
-import { Usuario } from "../../usuario/types/usuario";
+import { Usuario } from "../../types/usuario";
 //shared
-import {BoxSubSec, HeadSubSec, BodySubSec, ContSubSec, DivSubSec} from '../../../shared'
+import {BoxSubSec, HeadSubSec, BodySubSec, ContSubSec, DivSubSec} from '../../../../shared'
 
 export default function FichaClinica(props: Usuario){
     const usuario = props;

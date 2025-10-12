@@ -1,11 +1,13 @@
 'use client'
 //react
 import React from 'react';
-//local
-import { TitleSubSec, HeadSubSec, BodySubSec, ContSubSec, InputOutlined} from '../../../shared'
+import { useFormContext } from "react-hook-form";
+//shared
+import { TitleSubSec, HeadSubSec, BodySubSec, ContSubSec, InputOutlined} from '../../../../shared'
 // import '../../../globals.css'
 
-export default function Anamnesis(){
+export function Anamnesis(){
+    const { register } = useFormContext();
     return(
         <div>
             <ContSubSec>
@@ -16,15 +18,15 @@ export default function Anamnesis(){
                 </HeadSubSec>
                 <BodySubSec>
                     <div className='w-[90%] m-auto]'>
-                        <InputOutlined label="Patologías"/>
-                        <InputOutlined label="Antecedentes mórbidos familiares"/>
+                        {/* <InputOutlined label="Patologia" name="rut" type="text" register={register} rules={{ required: false }}/> */}
+                        {/* <InputOutlined label="Antecedentes mórbidos familiares"/>
                         <InputOutlined label="Alergias"/>
                         <InputOutlined label="Intolerancias"/>
                         <InputOutlined label="Farmacos"/>
                         <InputOutlined label="Antecedentes gastroinestinales"/>
                         <InputOutlined label="Deposiciones"/>
                         <InputOutlined label="Cirugías"/>
-                        <InputOutlined label="Exámenes de laboratorio"/>
+                        <InputOutlined label="Exámenes de laboratorio"/> */}
                     </div>
                 </BodySubSec>
                 <div className='h-[40px]'></div>
@@ -39,9 +41,9 @@ export default function Anamnesis(){
                 </HeadSubSec>
                 <BodySubSec>
                     <div className='w-[90%] m-auto]'>
-                        <InputOutlined label="?"/>
+                        {/* <InputOutlined label="?"/>
                         <InputOutlined label="??"/>
-                        <InputOutlined label="???"/>
+                        <InputOutlined label="???"/> */}
                     </div>
                 </BodySubSec>
                 <div className='h-[40px]'></div>
@@ -56,8 +58,8 @@ export default function Anamnesis(){
                 </HeadSubSec>
                 <BodySubSec>
                     <div className='w-[90%] m-auto]'>
-                        <InputOutlined label="R24H"/>
-                        <InputOutlined label="ETCC"/>
+                        {/* <InputOutlined label="R24H"/>
+                        <InputOutlined label="ETCC"/> */}
                     </div>
                 </BodySubSec>
                 <div className='h-[40px]'></div>
@@ -72,9 +74,9 @@ export default function Anamnesis(){
                 </HeadSubSec>
                 <BodySubSec>
                     <div className='w-[90%] m-auto]'>
-                        <InputOutlined label="Alcohol"/>
+                        {/* <InputOutlined label="Alcohol"/>
                         <InputOutlined label="Tabaco"/>
-                        <InputOutlined label="Deporte"/>
+                        <InputOutlined label="Deporte"/> */}
                     </div>
                 </BodySubSec>
                 <div className='h-[40px]'></div>

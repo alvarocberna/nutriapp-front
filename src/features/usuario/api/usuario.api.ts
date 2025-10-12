@@ -31,7 +31,7 @@ export class UsuarioService{
     }
 
     public static async getUsuarioById(id: string): Promise<Usuario>{
-        return apiFetch<Usuario>(`usuario/${id}`);
+        return apiFetch<Usuario>(`usuario/id/${id}`);
     }
 
     public static async createUsuario(usuario: IFormInput): Promise<void>{
