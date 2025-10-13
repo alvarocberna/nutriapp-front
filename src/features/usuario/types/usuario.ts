@@ -12,6 +12,6 @@ export interface Usuario {
     celular: number;
     fecha_nacimiento: Date;
     fecha_creacion: Date;
-    password: string;
+    // password: string;
     rol: string;
 };

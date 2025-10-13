@@ -30,8 +30,12 @@ export class UsuarioService{
         return await apiFetch<Usuario[]>('usuario');
     }
 
+    public static async getPacientesByProfId(): Promise<Usuario[]>{
+        return await apiFetch<Usuario[]>('usuario/pacientes-by-profesional-id')
+    }
+
     public static async getUsuarioById(id: string): Promise<Usuario>{
-        return apiFetch<Usuario>(`usuario/id/${id}`);
+        return await apiFetch<Usuario>(`usuario/id/${id}`);
     }
 
     public static async createUsuario(usuario: IFormInput): Promise<void>{

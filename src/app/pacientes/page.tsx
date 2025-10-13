@@ -64,7 +64,7 @@ export default function Pacientes(){
   useEffect(() => {
     const fetchUsuarios = async () => {
       try{
-        const data = await UsuarioService.getUsuarios();
+        const data = await UsuarioService.getPacientesByProfId();
         setUsuarios(data);
       }catch(error){
         console.error("Error al obtener usuarios:", error); 
