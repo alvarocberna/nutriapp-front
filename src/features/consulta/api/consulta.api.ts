@@ -1,39 +1,39 @@
 
 import {apiFetch} from "../../../shared/api/client"
 import { CreateFullConsultaDto, CreateMedicionesDto, CreateBasicasDto, CreateConsultaDto, CreatePlieguesDto, CreatePerimetrosDto, CreateDiametrosDto } from "../types/consulta";
+import { Consulta } from "../types/consulta";
 
 export class ConsultaService{
 
-    public static async getConsulta(): Promise<any[]>{
-        return await apiFetch<any[]>('consulta');
+    public static async getConsultas(id_paciente: string): Promise<Consulta[]>{
+        const consulta = await apiFetch<any[]>(`consulta/${id_paciente}`);
+        console.log('data consulta: ' + consulta);
+        return consulta;
     }
 
-    public static async getConsultaById(id: string): Promise<any>{
+    public static async getConsultasById(id: string): Promise<any>{
         return apiFetch<any>(`consulta/${id}`);
     }
 
-    public static async createConsulta(data: any): Promise<void>{
+    public static async createConsulta(id_paciente: string, data: any): Promise<void>{
 
         //CONVERTIRMOS LOS DATOS DEL FORM AL FORMATO DTO ESPERADO POR EL ENDPOINT
         const consulta: CreateConsultaDto = {
             fecha_consulta: new Date(),
             descripcion: "primera consulta",
-            profesional_id: "ffa08696-ea33-4971-9430-22588e78cedf",
-            paciente_id: "d2da2eca-4bf1-4b4e-834e-41ef2dc2909a"
+            paciente_id: id_paciente
         }
         const mediciones: CreateMedicionesDto = {
             nivel: "ISAK 1",
             descripcion: "primera medicion",
-            profesional_id: "ffa08696-ea33-4971-9430-22588e78cedf",
-            paciente_id: "d2da2eca-4bf1-4b4e-834e-41ef2dc2909a"   
+            paciente_id: id_paciente   
         }
         const basicas: CreateBasicasDto = {
             peso: data.mediciones.peso,
             talla: data.mediciones.talla,
             talla_sentado: data.mediciones.talla_sentado,
             envergadura: data.mediciones.envergadura,
-            profesional_id: "ffa08696-ea33-4971-9430-22588e78cedf",
-            paciente_id: "d2da2eca-4bf1-4b4e-834e-41ef2dc2909a"
+            paciente_id: id_paciente
         }
         const pliegues: CreatePlieguesDto = {
             tricep: data.mediciones.tricep,
@@ -44,8 +44,7 @@ export class ConsultaService{
             abdominal: data.mediciones.abdominal,
             muslo: data.mediciones.muslo,
             pierna: data.mediciones.pierna_per,
-            profesional_id: "ffa08696-ea33-4971-9430-22588e78cedf",
-            paciente_id: "d2da2eca-4bf1-4b4e-834e-41ef2dc2909a"
+            paciente_id: id_paciente
         }
         const perimetros: CreatePerimetrosDto = {
             brazo_relajado: data.mediciones.brazo_relajado,
@@ -54,15 +53,13 @@ export class ConsultaService{
             cadera: data.mediciones.cadera,
             muslo_medio: data.mediciones.muslo_medio,
             pierna: data.mediciones.pierna_per,
-            profesional_id: "ffa08696-ea33-4971-9430-22588e78cedf",
-            paciente_id: "d2da2eca-4bf1-4b4e-834e-41ef2dc2909a"
+            paciente_id: id_paciente
         }
         const diametros: CreateDiametrosDto = {
             humero: data.mediciones.humero,
             biestiloideo: data.mediciones.biestiloideo,
             femur: data.mediciones.femur,
-            profesional_id: "ffa08696-ea33-4971-9430-22588e78cedf",
-            paciente_id: "d2da2eca-4bf1-4b4e-834e-41ef2dc2909a"
+            paciente_id: id_paciente
         }
 
         const consultaData: CreateFullConsultaDto = {

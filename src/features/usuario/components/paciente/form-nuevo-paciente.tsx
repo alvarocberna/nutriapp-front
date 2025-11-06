@@ -45,7 +45,7 @@ export function FormNuevoPaciente() {
     } = useForm<IFormInput>()
 
     const onSubmit: SubmitHandler<IFormInput> = (data) => {
-        UsuarioService.createUsuario(data);
+        UsuarioService.createPaciente(data);
         console.log("form enviado" + data)
     }
 
@@ -173,8 +173,8 @@ export function FormNuevoPaciente() {
                 Contraseña
             </label>
         </div> */}
-        <InputOutlined label="Contraseña" name="password" type="password" register={register} rules={{ required: "campo obligatorio", pattern: {value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/, message: "Debe contener al menos una mayúscula, una minúscula, un número y un carácter especial"}, minLength: {value: 8, message: "Debe tener al menos 8 caracteres"}, maxLength: {value: 16, message: "Debe tener máximo 16 caracteres"}}}/>
-        {errors.password && <span className="text-red-700">{errors.password.message}</span>}
+        {/* <InputOutlined label="Contraseña" name="password" type="password" register={register} rules={{ required: "campo obligatorio", pattern: {value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/, message: "Debe contener al menos una mayúscula, una minúscula, un número y un carácter especial"}, minLength: {value: 8, message: "Debe tener al menos 8 caracteres"}, maxLength: {value: 16, message: "Debe tener máximo 16 caracteres"}}}/>
+        {errors.password && <span className="text-red-700">{errors.password.message}</span>} */}
 
         {/* confirmar password */}
         {/* <div className="relative w-full mt-3">
@@ -183,8 +183,8 @@ export function FormNuevoPaciente() {
                 Confirmar contraseña
             </label>
         </div> */}
-        <InputOutlined label="Confirmar contraseña" name="password_confirmation" type="password" register={register} rules={{required: "Debes confirmar contraseña", validate: (value: any) => value === watch("password") || "Las contraseñas no coinciden" }}/>
-        {errors.password_confirmation && <span className="text-red-700">{errors.password_confirmation.message}</span>}
+        {/* <InputOutlined label="Confirmar contraseña" name="password_confirmation" type="password" register={register} rules={{required: "Debes confirmar contraseña", validate: (value: any) => value === watch("password") || "Las contraseñas no coinciden" }}/>
+        {errors.password_confirmation && <span className="text-red-700">{errors.password_confirmation.message}</span>} */}
 
        <div className='w-1/2 h-[40px] mx-auto mt-10'>
             <input className='primary-btn' type='submit' value='Crear'/>
