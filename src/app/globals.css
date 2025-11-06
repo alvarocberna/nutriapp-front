@@ -108,7 +108,7 @@ body {
   background-color: white;
   border: 1px solid #bbbbbb;
   border-radius: 10px;
-  color: black;
+  /* color: black; */
   padding-left: 10px;
   font-size: 16px;
 }
@@ -126,5 +126,12 @@ body {
   /* font-size: 16px; */
 }
 
-
+.hover-primary{
+  cursor: pointer;
+  transition: 0.3s;
+}
+.hover-primary:hover{
+  background-color: #EBEBF8;
+  transition: 0.3s;
+}
 

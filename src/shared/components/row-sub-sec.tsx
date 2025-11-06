@@ -1,4 +1,4 @@
-
+import '../../app/globals.css'
 //next
 import Link from "next/link";
 
@@ -7,8 +7,10 @@ export function RowSubSec(
 ){
 
     return(
-    <div className="h-[40px] w-full flex items-center justify-between px-5  border-t-1 border-[#bbb]">
+    <div className="h-[40px] w-full flex items-center justify-between px-5  border-t-1 border-[#bbb] hover-primary">
         {children}
     </div>
     )
 }
+
+

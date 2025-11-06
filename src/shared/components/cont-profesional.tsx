@@ -12,7 +12,7 @@ export function ProfessionalCont(
 
         {/* Sec Principal */}
         <div className="h-full md:ml-[280px] pb-10 flex bg-quaternary">
-            <div className='w-[80%] h-full mt-5 mb-10 mx-auto '>
+            <div className='w-[80%] h-full mt-8 mb-10 mx-auto '>
                 {children}
             </div>
         </div>

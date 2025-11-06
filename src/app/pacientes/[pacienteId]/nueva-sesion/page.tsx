@@ -1,6 +1,7 @@
 'use client'
 //next
 import Link from 'next/link';
+import { useParams } from "next/navigation";
 //react
 import React from 'react';
 import { useState } from 'react';
@@ -18,6 +19,8 @@ import '../../../globals.css'
 
 export default function NuevaSesion(){
 
+    const id = useParams<{pacienteId: string}>().pacienteId;
+
     const methods = useForm<CreateFullConsultaForm>({
         defaultValues: {
         // anamnesis: {},
@@ -30,7 +33,7 @@ export default function NuevaSesion(){
     const onSubmit = (data: CreateFullConsultaForm) =>  {
         console.log("Datos completos:", data);
         // Aquí llamas a tu servicio/endpoint
-        ConsultaService.createConsulta(data);
+        ConsultaService.createConsulta(id, data);
     };
 
     const [etapa, setEtapa] = useState(1);

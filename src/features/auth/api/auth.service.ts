@@ -15,13 +15,6 @@ export class AuthService{
             password: dataForm.password
         }
 
-        // const response = await apiFetch<{ message: string }>(
-        //     "auth/login",
-        //     "POST",
-        //     data,
-        //     "include"
-        // );
-
         const response = await apiFetch<{ message: string }>('auth/login', 'POST', data)
 
         return response;

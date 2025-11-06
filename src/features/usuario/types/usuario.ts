@@ -8,6 +8,7 @@ export interface Usuario {
     nombre_segundo: string;
     apellido_paterno: string;
     apellido_materno: string;
+    genero: string;
     correo: string;
     celular: number;
     fecha_nacimiento: Date;
