@@ -11,7 +11,7 @@ export function HomeCont({ children, widthInner = '100%' }: HomeContProps) {
     <div className="">
 
         {/* Navbar de 280px */}
-        <NavbarHome/>
+        {/* <NavbarHome/> */}
 
         {/* Sec Principal */}
         <div className="w-full h-full  pb-10 flex bg-quaternary"  >
