@@ -13,6 +13,22 @@ export * from "./usuario/types/usuario";
 //consulta
 export * from "./consulta/api/consulta.api";
 export * from "./consulta/types/consulta";
+export * from "./consulta/dtos/create-consulta.dto";
+export * from "./consulta/dtos/update-consulta.dto";
+export * from "./consulta/entities/consulta.entities";
+
 //inicio sesion
 export * from "./auth/components/form-inicio-sesion";
 
+//types
+export * from './usuario/types/forms';
+export * from './usuario/types/usuario';
+
+//graph
+export * from './consulta/graficos/resumen.graph';
+export * from './consulta/graficos/comp-corp-kg.graph';
+export * from './consulta/graficos/comp-corp-porc.graph';
+export * from './consulta/graficos/perimetros.graph';
+export * from './consulta/graficos/pliegues.graph';
+export * from './consulta/graficos/resumen-ficha.graph';
+export * from './consulta/graficos/test.graph';

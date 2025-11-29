@@ -12,23 +12,75 @@ import { faClipboardList, faPerson, faCalculator, faCarrot, faCheck, faCircle } 
 import {ProfessionalCont, TitleSec} from '@/shared'
 //features
 import {Anamnesis, Mediciones, Requerimientos, Planificacion} from '@/features';
-import {ConsultaService, CreateFullConsultaForm, CreateMedicionesForm} from '@/features';
-import {Consulta} from "@/features/consulta/types/consulta";
+import {ConsultaService, CreateFullConsultaForm, UpdateFullConsultaForm, UpdateMedicionesForm} from '@/features';
+import {ConsultaEntity} from "@/features";
 //app
-import '../../../globals.css'
+import '../../../../globals.css'
+
 
 export default function ConsultaAnterior(){
-    const [consulta, setConsulta] = useState<Consulta>()
+    const [consulta, setConsulta] = useState<ConsultaEntity>()
     const pacienteId = useParams<{pacienteId: string}>().pacienteId;
     const consultaId = useParams<{consultaId: string}>().consultaId;
+    const [medicionId, setMedicionId] = useState<number>(0);
+    const [nroMedicion, setNroMedicion] = useState<number>(0);
+    const [basicasId, setBasicasId] = useState<number>(0);
+    const [plieguesId, setPlieguesId] = useState<number>(0);
+    const [perimetrosId, setPerimetrosId] = useState<number>(0);
+    const [diametrosId, setDiametrosId] = useState<number>(0);
+    const [resultadosId, setResultadosId] = useState<number>(0);
+
+    const methods = useForm<UpdateFullConsultaForm>({
+        defaultValues: {
+        // anamnesis: {},
+        mediciones: UpdateMedicionesForm as any,
+        // requerimientos: {},
+        // planificacion: {}
+        }
+    });
+
+    const { reset } = methods;
 
     useEffect(() => {
         const fetchData = async () => {
             try{
-                const dataConsultas = (await ConsultaService.getConsultas(pacienteId));
-                dataConsultas.forEach((consulta: Consulta) => {
+                const dataConsultas = (await ConsultaService.getConsultasByIdPaciente(pacienteId));
+                dataConsultas.forEach((consulta: ConsultaEntity) => {
                     if(consulta.id === consultaId){
                         setConsulta(consulta)
+                        setMedicionId(consulta.mediciones.id);
+                        setNroMedicion(consulta.mediciones.nro_medicion);
+                        setBasicasId(consulta.mediciones.basicas.id);
+                        setPlieguesId(consulta.mediciones.pliegues.id);
+                        setPerimetrosId(consulta.mediciones.perimetros.id);
+                        setDiametrosId(consulta.mediciones.diametros.id);
+                        setResultadosId(consulta.mediciones.resultados_med.id);
+                        // ¡Punto clave! Reinicia el formulario con los datos obtenidos.
+                        reset({
+                            mediciones: {
+                                "peso": consulta.mediciones.basicas.peso,
+                                "talla": consulta.mediciones.basicas.talla,
+                                "talla_sentado": consulta.mediciones.basicas.talla_sentado,
+                                "envergadura": consulta.mediciones.basicas.envergadura,                          
+                                "tricep": consulta.mediciones.pliegues.tricep,
+                                "subescapular": consulta.mediciones.pliegues.subescapular,
+                                "bicep": consulta.mediciones.pliegues.bicep,
+                                "cresta_iliaca": consulta.mediciones.pliegues.cresta_iliaca,
+                                "supraespinal": consulta.mediciones.pliegues.supraespinal,                                
+                                "abdominal": consulta.mediciones.pliegues.abdominal,
+                                "muslo": consulta.mediciones.pliegues.muslo,
+                                "pierna_pli": consulta.mediciones.pliegues.pierna,
+                                "brazo_relajado": consulta.mediciones.perimetros.brazo_relajado,
+                                "brazo_flexionado": consulta.mediciones.perimetros.brazo_flexionado,
+                                "cintura": consulta.mediciones.perimetros.cintura,
+                                "cadera": consulta.mediciones.perimetros.cadera,
+                                "muslo_medio": consulta.mediciones.perimetros.muslo_medio,
+                                "pierna_per": consulta.mediciones.perimetros.pierna,
+                                "humero": consulta.mediciones.diametros.humero,
+                                "biestiloideo": consulta.mediciones.diametros.biestiloideo,
+                                "femur": consulta.mediciones.diametros.femur,
+                            }
+                        });
                     }
                 })  
             }catch(error){
@@ -36,21 +88,12 @@ export default function ConsultaAnterior(){
             }
         }
         fetchData();
-    }, [])
+    }, [pacienteId, consultaId, reset])
 
-    const methods = useForm<CreateFullConsultaForm>({
-        defaultValues: {
-        // anamnesis: {},
-        mediciones: CreateMedicionesForm as any,
-        // requerimientos: {},
-        // planificacion: {}
-        }
-    });
-
-    const onSubmit = (data: CreateFullConsultaForm) =>  {
+    const onSubmit = (data: UpdateFullConsultaForm) =>  {
         console.log("Datos completos:", data);
         // Aquí llamas a tu servicio/endpoint
-        // ConsultaService.createConsulta(pacienteId, data);
+        ConsultaService.updateConsulta({pacienteId, consultaId, medicionId, nroMedicion, basicasId, plieguesId, perimetrosId, diametrosId, resultadosId, data});
     };
 
     const [etapa, setEtapa] = useState(1);
@@ -241,20 +284,23 @@ export default function ConsultaAnterior(){
                         preview &&
                         <div>preview</div>
                     }
-                    <div className='w-full flex justify-between mt-10 mb-5'>
-                        <div className='w-[150px] h-[35px]'>
-                            <button className='primary-btn' onClick={prevEtapa}>Anterior</button> 
-                        </div>
-                        <div className="w-[200px] h-[35px] flex justify-center m-auto">
-                            <button className="m-auto primary-btn" type="submit">Guardar</button>
-                        </div>
-                        <div className='w-[150px] h-[35px]'>
-                            <button className='primary-btn' onClick={nextEtapa}>Siguiente</button>
-                        </div>
-                    </div>
+                    <button type="submit">Guardar consulta</button>
                 </form>
             </FormProvider>
 
+            <div className='w-full flex justify-between mt-10 mb-5'>
+                <div className='w-[150px] h-[35px]'>
+                    <button className='primary-btn' onClick={prevEtapa}>Anterior</button> 
+                </div>
+                {/* <div className="w-[200px] h-[35px] flex justify-center m-auto">
+                    <button className="primary-btn" type="button" onClick={methods.handleSubmit(onSubmit)}>
+                        Guardar
+                        </button>
+                </div> */}
+                <div className='w-[150px] h-[35px]'>
+                    <button className='primary-btn' onClick={nextEtapa}>Siguiente</button>
+                </div>
+            </div>
 
     </ProfessionalCont>
     )

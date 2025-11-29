@@ -8,7 +8,9 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import { AuthService } from '../api/auth.service';
 import { FormValues } from '../types/auth.types';
 //shared
-import { ContSubSec, HeadSubSec, BodySubSec, TitleSubSec, InputOutlined } from '@/shared';
+import { InputOutlined } from '@/shared';
+//toastify
+import { toast } from 'react-toastify';
 //global
 // import 'globals.css'
 
@@ -18,15 +20,14 @@ export function InicioSesionForm() {
   const router = useRouter();
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    console.log('submit hecho')
     try{
-      const response = await AuthService.login(data);
-      console.log("Login exitoso:", response);
+      await AuthService.login(data);
+      toast.success("Login exitos");
       router.push("/pacientes");
     }catch(error: any){
-      alert(error.message || "Error en el inicio de sesión");
+      //esto imprime 'error en la petición'
+      toast.error(error.message || 'usuario no encontrado' );
     }
-      
   }
 
   return (

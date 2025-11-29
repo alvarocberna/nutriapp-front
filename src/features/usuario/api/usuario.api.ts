@@ -1,34 +1,16 @@
-
+//shared
 import {apiFetch} from "../../../shared/api/client"
-import { Usuario } from "../types/usuario";
+//features
+import { Usuario, FormNuevoProfesionalInterface, FormNuevoPacienteInterface  } from "@/features";
 
-enum GenderEnum {
-  femenino = "FEMENINO",
-  masculino = "MASCULINO",
-  otro = "OTRO",
-}
-
-interface IFormInput {
-  rut: number
-  dv_rut: string
-  nombre_primero: string
-  nombre_segundo: string
-  apellido_paterno: string
-  apellido_materno: string
-  correo: string
-  genero: GenderEnum
-  celular: number
-  fecha_nacimiento: Date
-  fecha_creacion: Date
-//   password: string 
-//   password_confirmation: string
-}
 
 export class UsuarioService{
 
     public static async getUsuarios(): Promise<Usuario[]>{
         return await apiFetch<Usuario[]>('usuario');
     }
+
+    //PACIENTES
 
     public static async getPacientesByProfId(filters?: {search?: string, fechaInicio: Date, fechaFin: Date, edadMin?: number, edadMax?: number}): Promise<Usuario[]>{
         const query = new URLSearchParams();
@@ -45,8 +27,7 @@ export class UsuarioService{
         return await apiFetch<Usuario>(`usuario/id/${id}`);
     }
 
-    public static async createPaciente(paciente: IFormInput): Promise<void>{
-
+    public static async createPaciente(paciente: FormNuevoPacienteInterface): Promise<void>{
         const pacienteData = {
             rut: paciente.rut,
             dv_rut: paciente.dv_rut,
@@ -59,11 +40,29 @@ export class UsuarioService{
             celular: paciente.celular,
             fecha_nacimiento: paciente.fecha_nacimiento,
             fecha_creacion: new Date(),
-            // password: paciente.password,
-            // rol: "PACIENTE",
         }
 
-        return apiFetch<void>('usuario', 'POST', pacienteData)
+        return apiFetch<void>('usuario/create-paciente', 'POST', pacienteData)
+    }
+
+    //PROFESIONALES
+    
+    public static async createProfesional(profesional: FormNuevoProfesionalInterface): Promise<void>{
+        const profesionalData = {
+            rut: profesional.rut,
+            dv_rut: profesional.dv_rut,
+            nombre_primero: profesional.nombre_primero,
+            nombre_segundo: profesional.nombre_segundo,
+            apellido_paterno: profesional.apellido_paterno,
+            apellido_materno: profesional.apellido_materno,
+            genero: profesional.genero,
+            correo: profesional.correo,
+            celular: profesional.celular,
+            fecha_nacimiento: profesional.fecha_nacimiento,
+            fecha_creacion: new Date(),
+            password: profesional.password,
+        }
+        return apiFetch<void>('usuario/create-profesional', 'POST', profesionalData)
     }
 
 

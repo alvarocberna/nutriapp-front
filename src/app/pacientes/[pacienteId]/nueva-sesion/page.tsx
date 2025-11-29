@@ -1,7 +1,7 @@
 'use client'
 //next
 import Link from 'next/link';
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 //react
 import React from 'react';
 import { useState } from 'react';
@@ -9,8 +9,10 @@ import { useForm, FormProvider, SubmitHandler } from "react-hook-form"
 //fontawesome
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faClipboardList, faPerson, faCalculator, faCarrot, faCheck, faCircle } from '@fortawesome/free-solid-svg-icons'
+//toast
+import {toast} from 'react-toastify'
 //shared
-import {ProfessionalCont, TitleSec, TitleSubSec, HeadSubSec, BodySubSec, RowSubSec, ContSubSec, InputStandar, InputOutlined} from '../../../../shared'
+import {ProfessionalCont, TitleSec } from '../../../../shared'
 //features
 import {Anamnesis, Mediciones, Requerimientos, Planificacion} from '../../../../features';
 import {ConsultaService, CreateFullConsultaForm, CreateMedicionesForm} from '../../../../features';
@@ -19,8 +21,8 @@ import '../../../globals.css'
 
 export default function NuevaSesion(){
 
+    const router = useRouter();
     const id = useParams<{pacienteId: string}>().pacienteId;
-
     const methods = useForm<CreateFullConsultaForm>({
         defaultValues: {
         // anamnesis: {},
@@ -31,14 +33,19 @@ export default function NuevaSesion(){
     });
 
     const onSubmit = (data: CreateFullConsultaForm) =>  {
-        console.log("Datos completos:", data);
-        // Aquí llamas a tu servicio/endpoint
-        ConsultaService.createConsulta(id, data);
+        try{
+            ConsultaService.createConsulta(id, data);
+            toast.success('Consulta guardada con éxito');
+            router.push(`/pacientes/${id}`);
+        }catch(error: any){
+            // toast.error('Error al guardar consulta');
+            toast.error(error.message);
+        }
     };
 
-    const [etapa, setEtapa] = useState(1);
-    const [anamnesis, setAnamnesis] = useState(true);
-    const [mediciones, setMediciones] = useState(false);
+    const [etapa, setEtapa] = useState(2);
+    const [anamnesis, setAnamnesis] = useState(false);
+    const [mediciones, setMediciones] = useState(true);
     const [requerimientos, setRequerimientos] = useState(false);
     const [planificacion, setPlanificacion] = useState(false);
     const [preview, setPreviev] = useState(false);
@@ -225,19 +232,22 @@ export default function NuevaSesion(){
                         preview &&
                         <div>preview</div>
                     }
-                    <button type="submit">Guardar consulta</button>
+                    <div className='w-full flex justify-between mt-10'>
+                        <div className='w-[200px] h-[30px]'>
+                            <button className='primary-btn' onClick={prevEtapa}>Anterior</button> 
+                        </div>
+                        <button className='bg-primary w-[200px] h-[30px] text-white' 
+                        type="submit" style={{borderRadius: '8px', cursor: 'pointer'}}>
+                            Guardar consulta
+                        </button>
+                        <div className='w-[200px] h-[30px]'>
+                            <button className='primary-btn' onClick={nextEtapa}>Siguiente</button>
+                        </div>
+                    </div>
                 </form>
             </FormProvider>
 
 
-            <div className='w-full flex justify-between mt-10'>
-                <div className='w-[200px] h-[30px]'>
-                      <button className='primary-btn' onClick={prevEtapa}>Anterior</button> 
-                </div>
-                <div className='w-[200px] h-[30px]'>
-                      <button className='primary-btn' onClick={nextEtapa}>Siguiente</button>
-                </div>
-            </div>
     </ProfessionalCont>
     )
 }

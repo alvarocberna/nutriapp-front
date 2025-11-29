@@ -1,9 +1,12 @@
+interface Props {
+    children: React.ReactNode
+    width?: string
+    height?: string
+}
 
-export function BoxSubSec(
-    {children}: Readonly<{children: React.ReactNode;}>
-){
+export function BoxSubSec({children, width = '100%', height = '100%'}: Props){
     return(
-        <div className="w-full px-5 flex flex-col justify-center items-center">
+        <div className={`w-[${width}] h-[${height}]] flex flex-col justify-center items-center`}>
             {children}
         </div>
     )

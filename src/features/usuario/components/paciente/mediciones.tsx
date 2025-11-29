@@ -6,10 +6,10 @@ import { useFormContext } from "react-hook-form";
 import { TitleSubSec, HeadSubSec, BodySubSec, ContSubSec, InputOutlined} from '../../../../shared'
 import {CreateMedicionesForm} from '../../../consulta/types/consulta'
 //features
-import {Consulta} from "@/features/consulta/types/consulta";
+import {ConsultaEntity} from "@/features";
 // import '../../../globals.css'
 
-export function Mediciones(props: Partial<Consulta>){
+export function Mediciones(props: Partial<ConsultaEntity>){
 
     const med = props.mediciones
     const { register } = useFormContext();
