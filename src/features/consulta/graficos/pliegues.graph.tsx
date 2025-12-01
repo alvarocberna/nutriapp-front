@@ -17,7 +17,7 @@ interface GraphPlieguesInterface{
     height?: string;
 }
 
-export function GraphPliegues({ data, verX, width = '49', height = '300'}: GraphPlieguesInterface) {
+export function GraphPliegues({ data, verX, width = '100', height = '300'}: GraphPlieguesInterface) {
     const dataGraph = dataGraphLine(data || [], verX);
     const [scaleMax, setScaleMax] = useState(10);
     useEffect(() => {

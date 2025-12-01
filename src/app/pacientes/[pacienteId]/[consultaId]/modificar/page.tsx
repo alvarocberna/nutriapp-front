@@ -187,24 +187,24 @@ export default function ConsultaAnterior(){
         <ProfessionalCont>
             <TitleSec title={`Consulta #${consulta?.nro_consulta}`}/>
             {/* etapas */}
-            <div className='relative h-[100px] w-full mb-10'>
+            {/* <div className='relative h-[100px] w-full mb-10'>
                 <div className='absolute w-full h-[100px]'>
-                    {/* barra */}
-                    <div className='relative m-auto h-[100px] w-3/4 top-0 flex justify-center items-center'>
-                        <FontAwesomeIcon icon={faCircle} className=" text-primary " style={{width: '10px', height: '10px'}}/>
-                        <div className='h-[2px] w-full bg-primary'></div>
-                        <FontAwesomeIcon icon={faCircle} className=" text-primary " style={{width: '10px', height: '10px'}}/>
+
+                    <div className='BARRA relative m-auto h-[100px] w-3/4 top-0 flex justify-center items-center'>
+                        <FontAwesomeIcon icon={faCircle} className=" text-green-600 " style={{width: '10px', height: '10px'}}/>
+                        <div className='h-[2px] w-full bg-green-600'></div>
+                        <FontAwesomeIcon icon={faCircle} className=" text-green-600 " style={{width: '10px', height: '10px'}}/>
                     </div>
-                    {/* circulos */}
-                    <div className='relative m-auto flex w-3/4 h-[100px] top-[-100px] justify-evenly items-center'>
+
+                    <div className='CIRCULITOS relative m-auto flex w-3/4 h-[100px] top-[-100px] justify-evenly items-center'>
                         <div className='w-[70px] h-[70px]'>
                             {
                                 anamnesis ?
-                                <button onClick={changeEtapa} name="anamnesis" className='flex border w-[70px] h-[70px] justify-center items-center bg-primary border-blue-500 rounded-[50px]'>
+                                <button onClick={changeEtapa} name="anamnesis" className='flex border w-[70px] h-[70px] justify-center items-center bg-green-600 border-green-600 rounded-[50px]'>
                                     <FontAwesomeIcon icon={faClipboardList} className=" text-white " style={{width: '38px', height: '38px'}}/>
                                 </button>
                                 :
-                                <button onClick={changeEtapa} name="anamnesis" className='flex border w-[70px] h-[70px] justify-center items-center bg-secondary border-blue-500 rounded-[50px]'>
+                                <button onClick={changeEtapa} name="anamnesis" className='flex border w-[70px] h-[70px] justify-center items-center bg-green-200 border-green-600 rounded-[50px]'>
                                     <FontAwesomeIcon icon={faClipboardList} className=" text-white " style={{width: '38px', height: '38px'}}/>
                                 </button>
                             }
@@ -212,11 +212,11 @@ export default function ConsultaAnterior(){
                         <div className='w-[70px] h-[70px]'>
                             {
                                 mediciones ?
-                                <button onClick={changeEtapa} name="mediciones" className='flex border w-[70px] h-[70px] justify-center items-center bg-primary border-blue-500 rounded-[50px]'>
+                                <button onClick={changeEtapa} name="mediciones" className='flex border w-[70px] h-[70px] justify-center items-center bg-green-600 border-green-600 rounded-[50px]'>
                                     <FontAwesomeIcon icon={faPerson} className=" text-white " style={{width: '38px', height: '38px'}}/>
                                 </button>
                                 :
-                                <button onClick={changeEtapa} name="mediciones" className='flex border w-[70px] h-[70px] justify-center items-center bg-secondary border-blue-500 rounded-[50px]'>
+                                <button onClick={changeEtapa} name="mediciones" className='flex border w-[70px] h-[70px] justify-center items-center bg-green-200 border-green-600 rounded-[50px]'>
                                     <FontAwesomeIcon icon={faPerson} className=" text-white " style={{width: '38px', height: '38px'}}/>
                                 </button>
                             }
@@ -224,11 +224,11 @@ export default function ConsultaAnterior(){
                         <div className='w-[70px] h-[70px]'>
                             {
                                 requerimientos ?
-                                <button onClick={changeEtapa} name="requerimientos" className='flex border w-[70px] h-[70px] justify-center items-center bg-primary border-blue-500 rounded-[50px]'>
+                                <button onClick={changeEtapa} name="requerimientos" className='flex border w-[70px] h-[70px] justify-center items-center bg-green-600 border-green-600 rounded-[50px]'>
                                     <FontAwesomeIcon icon={faCalculator} className=" text-white " style={{width: '38px', height: '38px'}}/>
                                 </button>
                                 :
-                                <button onClick={changeEtapa} name="requerimientos" className='flex border w-[70px] h-[70px] justify-center items-center bg-secondary border-blue-500 rounded-[50px]'>
+                                <button onClick={changeEtapa} name="requerimientos" className='flex border w-[70px] h-[70px] justify-center items-center bg-green-200 border-green-600 rounded-[50px]'>
                                     <FontAwesomeIcon icon={faCalculator} className=" text-white " style={{width: '38px', height: '38px'}}/>
                                 </button>
                             }
@@ -236,11 +236,11 @@ export default function ConsultaAnterior(){
                         <div className='w-[70px] h-[70px]'>
                             {
                                 planificacion ?
-                                <button onClick={changeEtapa} name="planificacion" className='flex border w-[70px] h-[70px] justify-center items-center bg-primary border-blue-500 rounded-[50px]'>
+                                <button onClick={changeEtapa} name="planificacion" className='flex border w-[70px] h-[70px] justify-center items-center bg-green-600 border-green-600 rounded-[50px]'>
                                     <FontAwesomeIcon icon={faCarrot} className=" text-white " style={{width: '38px', height: '38px'}}/>
                                 </button>
                                 :
-                                <button onClick={changeEtapa} name="planificacion" className='flex border w-[70px] h-[70px] justify-center items-center bg-secondary border-blue-500 rounded-[50px]'>
+                                <button onClick={changeEtapa} name="planificacion" className='flex border w-[70px] h-[70px] justify-center items-center bg-green-200 border-green-600 rounded-[50px]'>
                                     <FontAwesomeIcon icon={faCarrot} className=" text-white " style={{width: '38px', height: '38px'}}/>
                                 </button>
                             }
@@ -248,18 +248,18 @@ export default function ConsultaAnterior(){
                         <div className='w-[70px] h-[70px]'>
                             {
                                 preview ?
-                                <button onClick={changeEtapa} name="preview" className='flex border w-[70px] h-[70px] justify-center items-center bg-primary border-blue-500 rounded-[50px]'>
+                                <button onClick={changeEtapa} name="preview" className='flex border w-[70px] h-[70px] justify-center items-center bg-green-600 border-green-600 rounded-[50px]'>
                                     <FontAwesomeIcon icon={faCheck} className=" text-white " style={{width: '38px', height: '38px'}}/>
                                 </button>
                                 :
-                                <button onClick={changeEtapa} name="preview" className='flex border w-[70px] h-[70px] justify-center items-center bg-secondary border-blue-500 rounded-[50px]'>
+                                <button onClick={changeEtapa} name="preview" className='flex border w-[70px] h-[70px] justify-center items-center bg-green-200 border-green-600 rounded-[50px]'>
                                     <FontAwesomeIcon icon={faCheck} className=" text-white " style={{width: '38px', height: '38px'}}/>
                                 </button>
                             }
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* Formulario */}
              <FormProvider {...methods}>
@@ -284,23 +284,41 @@ export default function ConsultaAnterior(){
                         preview &&
                         <div>preview</div>
                     }
-                    <button type="submit">Guardar consulta</button>
+                    {/* <button type="submit">Guardar consulta</button> */}
+                    <div className='w-full flex flex-col justify-between mt-10'>
+                        {/* <div className='w-full flex justify-between mb-2'>
+                            <div className='w-[49%] h-[30px]'>
+                                <button className='primary-btn' onClick={prevEtapa}>Anterior</button> 
+                            </div>
+                            <button className='hidden md:flex bg-green-600 w-[200px] h-[30px] text-white' 
+                            type="submit" style={{borderRadius: '5px', cursor: 'pointer'}}>
+                                Guardar consulta
+                            </button>
+                            <div className='w-[49%] h-[30px]'>
+                                <button className='primary-btn' onClick={nextEtapa}>Siguiente</button>
+                            </div>
+                        </div> */}
+                        <button className='bg-green-600 w-full sm:w-[50%] lg:w-[40%] xl:w-[25%] h-[30px] text-white' 
+                            type="submit" style={{borderRadius: '5px', cursor: 'pointer'}}>
+                            Guardar consulta
+                        </button>
+                    </div>
                 </form>
             </FormProvider>
 
-            <div className='w-full flex justify-between mt-10 mb-5'>
+            {/* <div className='w-full flex justify-between mt-10 mb-5'>
                 <div className='w-[150px] h-[35px]'>
                     <button className='primary-btn' onClick={prevEtapa}>Anterior</button> 
                 </div>
-                {/* <div className="w-[200px] h-[35px] flex justify-center m-auto">
+                <div className="w-[200px] h-[35px] flex justify-center m-auto">
                     <button className="primary-btn" type="button" onClick={methods.handleSubmit(onSubmit)}>
                         Guardar
                         </button>
-                </div> */}
+                </div>
                 <div className='w-[150px] h-[35px]'>
                     <button className='primary-btn' onClick={nextEtapa}>Siguiente</button>
                 </div>
-            </div>
+            </div> */}
 
     </ProfessionalCont>
     )

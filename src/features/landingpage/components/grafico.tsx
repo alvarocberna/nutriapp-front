@@ -12,15 +12,9 @@ export const Grafico = () => {
     const [count, setCount] = useState(1);
 
     useEffect(() => {
-        console.log(count)
-        //   setTimeout(() => {
-        //             setData(data2);
-        //             setCount(1);
-        //         }, 2000)
         switch (count){
             case 1:
                 setTimeout(() => {
-                    console.log('settimeout 1 ejecutado')
                     setData(data2);
                     setCount(2);
                 }, 2000)
@@ -48,14 +42,6 @@ export const Grafico = () => {
                     xScale={{ type: 'point' }}
                     yScale={{ type: 'linear', min: 0, max: 30, stacked: false }}
                     axisBottom={null}
-                    // axisBottom={{
-                    //     tickSize: 5,
-                    //     tickPadding: 5,
-                    //     tickRotation: -45, // 👈 ROTACIÓN vertical
-                    //     legend: '',
-                    //     legendOffset: 6,
-                    //     legendPosition: 'middle',
-                    // }}
                     axisLeft={null}
                     enableGridX={false}
                     colors={{ scheme: "set2" }}
@@ -91,14 +77,14 @@ const data2 = [
             id: 'datos',
             color: "hsl(210, 70%, 50%)",
             data: [
-                { x: `Tricep`, y: 20 },
-                { x: `Subescapular`, y: 22 },
-                { x: `Bicep`, y: 12 },
-                { x: `Cresta Iliaca`, y: 18 },
-                { x: `Supraespinal`, y: 16 },
-                { x: `Abdominal`, y: 13 },
-                { x: `Muslo`, y: 14 },
-                { x: `Pierna`, y: 15 },
+                { x: `Tricep`, y: 5 },
+                { x: `Subescapular`, y: 20 },
+                { x: `Bicep`, y: 5 },
+                { x: `Cresta Iliaca`, y: 20 },
+                { x: `Supraespinal`, y: 5 },
+                { x: `Abdominal`, y: 20 },
+                { x: `Muslo`, y: 5 },
+                { x: `Pierna`, y: 20 },
             ]
         }
     ]
@@ -108,13 +94,13 @@ const data3 = [
             id: 'datos',
             color: "hsl(210, 70%, 50%)",
             data: [
-                { x: `Tricep`, y: 10 },
-                { x: `Subescapular`, y: 25 },
-                { x: `Bicep`, y: 12 },
-                { x: `Cresta Iliaca`, y: 28 },
-                { x: `Supraespinal`, y: 6 },
-                { x: `Abdominal`, y: 13 },
-                { x: `Muslo`, y: 24 },
+                { x: `Tricep`, y: 20 },
+                { x: `Subescapular`, y: 10 },
+                { x: `Bicep`, y: 15 },
+                { x: `Cresta Iliaca`, y: 5 },
+                { x: `Supraespinal`, y: 20 },
+                { x: `Abdominal`, y: 10 },
+                { x: `Muslo`, y: 20 },
                 { x: `Pierna`, y: 15 },
             ]
         }

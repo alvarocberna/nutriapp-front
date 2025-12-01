@@ -34,13 +34,13 @@ export function InicioSesionForm() {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 w-full">
           <div>
             <InputOutlined  label="Correo" name="correo" type="email" register={register} rules={{ required: true }}/>
-            {errors.correo && <span>Requerido</span>}
+            {errors.correo && <span className="text-sm text-red-400">Campo requerido</span>}
           </div>
           <div>
             <InputOutlined  label="Contraseña" name="password" type="password" register={register} rules={{ required: true }}/>
-            {errors.password && <span>Requerido</span>}
+            {errors.password && <span className="text-sm text-red-400">Campo requerido</span>}
           </div>
-          <div className='w-1/2 h-[40px] m-auto mb-10'>
+          <div className='w-1/3 h-[40px] m-auto mb-10'>
              <button disabled={isSubmitting} className='primary-btn' type="submit">Entrar</button> 
           </div>
         </form>

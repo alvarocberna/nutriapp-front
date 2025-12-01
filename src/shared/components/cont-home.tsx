@@ -1,21 +1,20 @@
-
-import {NavbarHome} from './navbar-home'
+//shared
+import {NavbarHome} from '@/shared/components/navbar-home';
 
 interface HomeContProps {
   children: React.ReactNode
-  widthInner?: string // 👈 Nueva prop opcional
+  widthInner?: string
+  heightInner?: string
 }
 
-export function HomeCont({ children, widthInner = '100%' }: HomeContProps) {
+export function HomeCont({ children, widthInner = '100%', heightInner = '100%' }: HomeContProps) {
   return (
     <div className="">
-
-        {/* Navbar de 280px */}
-        {/* <NavbarHome/> */}
-
-        {/* Sec Principal */}
-        <div className="w-full h-full  pb-10 flex bg-quaternary"  >
-            <div className={`w-[${widthInner}] h-full mt-5 mb-10 mx-auto`}  style={{marginTop: '50px'}} >
+        {/* 1-Navbar de 280px */}
+        <NavbarHome/>
+        {/* 2-Sec Principal */}
+        <div className="w-full h-100% flex bg-quaternary">
+            <div className={`w-[${widthInner}] h-[${heightInner}] m-auto flex`}>
                 {children}
             </div>
         </div>

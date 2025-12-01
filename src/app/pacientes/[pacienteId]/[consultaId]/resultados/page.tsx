@@ -48,9 +48,10 @@ export default function ResultadosConsulta(){
         <ProfessionalCont>
             <TitleSec title="Resultados"/>
 
-            <div className="border mb-10 rounded">
+            <div className="mb-10 rounded ">
                 {/* falta añadir el default option */}
-                <select onChange={(e) => setVerX(Number(e.target.value))} className="w-full">
+                <select onChange={(e) => setVerX(Number(e.target.value))} 
+                    className="w-full rounded bg-white px-5 py-2">
                     {
                         consultas?.map((consulta, index) => (
                             <option key={index} value={index + 1}>
@@ -64,17 +65,26 @@ export default function ResultadosConsulta(){
             </div>
 
             <div className="flex flex-wrap justify-between">
-
-                <GraphResumen {...{peso: medicionLastOne?.basicas.peso, 
-                    talla: medicionLastOne?.basicas.talla,
-                    imc: medicionLastOne?.resultados_med.imc,
-                    mm_kg: medicionLastOne?.resultados_med.mm_kg,
-                    gc_kg: medicionLastOne?.resultados_med.gc_kg
-                }} />
-                <GraphCompCorpPorc consultas={consultas} />
-                <GraphCompCorpKg consultas={consultas} />
-                <GraphPerimetros data={consultas} verX={verX}/>
-                <GraphPliegues data={consultas} verX={verX}/>
+                <div className="w-[100%] sm:w-[49%] md:w-[100%] lg:w-[49%] xl:w-[30%]">
+                    <GraphResumen {...{peso: medicionLastOne?.basicas.peso, 
+                        talla: medicionLastOne?.basicas.talla,
+                        imc: medicionLastOne?.resultados_med.imc,
+                        mm_kg: medicionLastOne?.resultados_med.mm_kg,
+                        gc_kg: medicionLastOne?.resultados_med.gc_kg
+                    }} />
+                </div>
+                <div className="w-full sm:w-[49%] md:w-[100%] lg:w-[49%] xl:w-[30%]">
+                    <GraphCompCorpPorc consultas={consultas} />
+                </div>
+                <div className="w-full sm:w-[49%] md:w-[100%] lg:w-[49%] xl:w-[30%]">
+                   <GraphCompCorpKg consultas={consultas} />
+                </div>
+                <div className="w-full sm:w-[49%] md:w-[100%] lg:w-[49%] xl:w-[49%]">
+                    <GraphPerimetros data={consultas} verX={verX}/>
+                </div>
+               <div className="w-full sm:w-[49%] md:w-[100%] lg:w-[49%] xl:w-[49%]">
+                    <GraphPliegues data={consultas} verX={verX}/> 
+                </div>
        
             </div>
 

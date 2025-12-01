@@ -39,18 +39,18 @@ export default function FichaClinica({paciente, consultas}: Props){
             {/* 1 - Información personal */}
             <HeadSubSec>
                 {/* <div className="flex w-full justify-between items-center mt-5 mb-10"> */}
-                    <div className="w-full py-5 mb-5">
+                    <div className="w-full py-5 mb-1 md:mb-5">
                         <h2 className="text-[22px] text-primary font-bold mb-3">
                             Ficha clínica
                         </h2>
-                        <div className="flex text-black">
-                            <div className="w-[50%] text-sm">
+                        <div className="flex flex-col md:flex-row text-black">
+                            <div className="w-[100%] md:w-[50%] text-sm">
                                 <p className="mb-2">Nombre: {nombreCompleto}</p>
                                 <p className="mb-2">Rut: {usuario.rut}</p>
                                 <p className="mb-2">Fecha nacimiento: {fechaNacimiento}</p>
                                 <p className="mb-2">Edad: {edad(fecha)}</p>
                             </div>
-                              <div className="w-[50%] text-sm">
+                              <div className="w-[100%] md:w-[50%] text-sm">
                                 <p className="mb-2">Sexo: {sexo}</p>
                                 <p className="mb-2">Correo: {correo}</p>
                                 <p className="mb-2">Celular: {celular} </p>
@@ -59,11 +59,15 @@ export default function FichaClinica({paciente, consultas}: Props){
                     </div>
                 {/* </div> */}
             </HeadSubSec>
+            {/* Gráficos */}
             <BodySubSec>
-                <div className="flex w-full">
-                    {/* <TestChart/> */}
-                    <GraphResumenFicha consultas={consultas} width="50"/>
-                    <GraphCompCorpPorc consultas={consultas} width="50"/>
+                <div className="flex flex-col md:flex-row w-full">
+                    <div className="w-[100%] md:w-[50%]">
+                        <GraphResumenFicha consultas={consultas} width="100"/>
+                    </div>
+                    <div className="w-[100%] md:w-[50%]">
+                        <GraphCompCorpPorc consultas={consultas} width="100"/>
+                    </div>
                 </div>
             </BodySubSec>
             <div className='h-[50px]'></div>

@@ -16,7 +16,7 @@ interface GraphCompCorpKgInterface{
 }
 
 
-export function GraphCompCorpKg({consultas, width = '30', height = '300'}: GraphCompCorpKgInterface){
+export function GraphCompCorpKg({consultas, width = '100', height = '300'}: GraphCompCorpKgInterface){
 
     const data = dataGraph(consultas);
 
@@ -47,8 +47,8 @@ const dataGraph = (consultas: ConsultaEntity[] | undefined) => {
     const mm = consultas[0].mediciones.resultados_med.mm_kg.toFixed(1) ?? 0;
     const gc = consultas[0].mediciones.resultados_med?.gc_kg.toFixed(1) ?? 0;
     return [
-        { id: 'MM', label: 'MM', value: mm, color: '#e7000b' },
-        { id: 'GC', label: 'GC', value: gc, color: '#fe9a00' },
-        { id: 'Peso', label: 'Peso', value: peso, color: '#2b7fff' },
+        { id: 'MM', label: 'MM', value: mm, color: '#ED786E' },
+        { id: 'GC', label: 'GC', value: gc, color: '#ECCF68' },
+        { id: 'Peso', label: 'Peso', value: peso, color: '#71C68E' },
     ];
 }

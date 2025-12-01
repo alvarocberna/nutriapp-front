@@ -2,17 +2,17 @@
 //next
 import Link from 'next/link';
 //react
-import React, { ReactEventHandler } from 'react';
+import React from 'react';
 import { useEffect, useState } from 'react';
 //fontawesome
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import { faPlus, faArrowUp, faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
 //shared
 import {ProfessionalCont, TitleSec, HeadSubSec, RowSubSec, ContSubSec, FooterSubSec} from '@/shared'
 //featured
 import { UsuarioService } from '@/features/usuario/api/usuario.api';
 import {Usuario} from '@/features/usuario/types/usuario';
-//local
+//css
 import '../globals.css'
 
 //ciclo de vida de este componente
@@ -75,23 +75,23 @@ export default function Pacientes(){
 
         <TitleSec title="Pacientes"/>
 
-    {/* 1 - Search */}
+    {/* 1 - Search y filters */}
         <div className="mb-10">
-          {/* Search Filter */}
-          <div className="flex flex-col lg:flex-row mb-5 justify-between">
-            <div className="relative w-[79%] h-[40px]">
+          {/* Search  */}
+          <div className="flex flex-col md:flex-row mb-5 justify-between">
+            <div className="relative w-[100%] md:w-[79%] h-[40px]">
                 <input type='text' id="floating-outlined" value={search} onChange={(e) => {setSearch(e.target.value)}} className="block input px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-800 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:focus:border-blue-primary focus:outline-none focus:ring-0 focus:border-primary peer" placeholder=" " />
                 <label className="absolute text-sm text-gray-500 dark:text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-primary peer-focus:dark:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Busqueda por nombre y/o correo</label>
             </div>
-            <div className='w-[20%] h-[40px]'>
+            <div className='w-[20%] h-[40px] hidden md:flex'>
               <button className="primary-btn" onClick={() => {setQuery(query + 1)}}>
                 Buscar
               </button>
             </div>
           </div>
 
-    {/* 2 - Filtros */}
-            <div className="flex justify-between relative">
+          {/* filtros */}
+          <div className="flex justify-between relative">
               {/* Edad */}
               <div className="w-[49%] h-[40px]">
                 <select className="input text-gray-500 text-sm" name='edad' onChange={(e) => {setEdadMin(Number(e.target.value.split('-')[0])); setEdadMax(Number(e.target.value.split('-')[1]))}}>
@@ -132,20 +132,27 @@ export default function Pacientes(){
                     </select>
                   </div>
               </div>
-      
-            </div>
           </div>
+          {/* buscar */}
+          <div className='w-[100%] h-[40px] mt-5 md:hidden'>
+              <button className="primary-btn" onClick={() => {setQuery(query + 1)}}>
+                Buscar
+              </button>
+          </div>
+        </div>
 
-    {/* section 'usuarios */}
+    {/*2- section 'usuarios */}
           <div className="">
             <ContSubSec>
               {/* header */}
               <HeadSubSec>
                 {/* btn nuevo paciente */}
-                <div className='w-[25%] h-[40px]'>
-                  <Link href='/pacientes/nuevo-paciente' className="primary-btn flex justify-center items-center">
+                <div className='w-[100%] sm:w-[40%] md:w-[50%] lg:w-[40%] xl:w-[25%] h-[40px]'>
+                  <Link href='/pacientes/nuevo-paciente' className="primary-btn flex justify-center items-center border">
                     <FontAwesomeIcon icon={faPlus} className="me-2 text-white" style={{width: '16px', height: '16px'}}/>
-                    <p className='p-0 m-0 text-md'>Nuevo paciente</p>
+                    <p className='p-0 m-0 text-md'>
+                      Nuevo paciente
+                    </p>
                   </Link>
                 </div>
                 {/* Order by */}
@@ -205,7 +212,7 @@ const ListaPacientes = (props: Usuario) => {
   return(
     <Link href={`/pacientes/${id}`}>
       <RowSubSec>
-          <div className="h-full w-[50%] flex items-center ">
+          <div className="h-full w-[75%] md:w-[50%] flex items-center">
             <p className="text-md text-black text-sm">
               {
               sexo == 'MASCULINO' ? 
@@ -216,12 +223,12 @@ const ListaPacientes = (props: Usuario) => {
               {nombre}
             </p>
           </div>
-          <div className="h-full w-[25%] flex items-center justify-start ">
+          <div className="h-full w-[25%] flex items-center justify-start">
              <p className="text-md text-black text-sm">
                {edad(fechaNacimiento)} años
              </p>
            </div>
-          <div className="h-full w-[25%] flex items-center justify-start ">
+          <div className="h-full w-[25%] items-center justify-start hidden sm:flex">
             <p className="text-md text-black text-sm">
               {props.correo}
             </p>

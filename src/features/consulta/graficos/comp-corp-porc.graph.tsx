@@ -15,7 +15,7 @@ interface GraphCompCorpPorcInterface{
     height?: string;
 }
 
-export function GraphCompCorpPorc({consultas, width = '30', height = '300'}: GraphCompCorpPorcInterface){
+export function GraphCompCorpPorc({consultas, width = '100', height = '300'}: GraphCompCorpPorcInterface){
 
     const data = dataGraph(consultas);
 
@@ -66,8 +66,8 @@ const dataGraph = (consultas: ConsultaEntity[] | undefined) => {
     const gc = Number(consultas[0].mediciones.resultados_med.gc_porcentaje.toFixed(1)) ?? 0;
     const otros = Number((100 - (mm + gc)).toFixed(2));
     return [
-        { id: 'Masa Muscular', label: 'MM', value: mm, color: '#e7000b' },
-        { id: 'Masa Grasa', label: 'GC', value: gc, color: '#fe9a00' },
-        { id: 'Otros', label: 'Otros', value: otros, color: '#2b7fff' },
+        { id: 'Masa Muscular', label: 'MM', value: mm, color: '#ED786E' },
+        { id: 'Masa Grasa', label: 'GC', value: gc, color: '#ECCF68' },
+        { id: 'Otros', label: 'Otros', value: otros, color: '#71C68E' },
     ];
 }

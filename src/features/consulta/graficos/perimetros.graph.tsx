@@ -17,7 +17,7 @@ interface GraphPerimetrosInterface{
     height?: string;
 }
 
-export function GraphPerimetros({ data, verX, width = '49', height = '300'}: GraphPerimetrosInterface) {
+export function GraphPerimetros({ data, verX, width = '100', height = '300'}: GraphPerimetrosInterface) {
     const dataGraph = dataGraphLine(data || [], verX);
     const [scaleMax, setScaleMax] = useState(100);
     useEffect(() => {

@@ -1,9 +1,11 @@
 'use client'
-
+//react
 import { useState } from "react";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import { faCalendarDays, faClipboard, faAppleWhole, faChild, faChartSimple, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+//next
 import Link from "next/link";
+//fontawesomwe
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faCalendarDays, faClipboard } from '@fortawesome/free-solid-svg-icons'
 
 
 export function NavbarHome() {
@@ -11,44 +13,45 @@ export function NavbarHome() {
 
   // categorías del menú
   const navInfo = [
-    { nombre: "Iniciar Sesión", ruta: "/inicio-sesion", icon: faCalendarDays },
+    { nombre: "Inicio de Sesión", ruta: "/inicio-sesion", icon: faCalendarDays },
     { nombre: "Registro", ruta: "/registro", icon: faClipboard },
   ];
 
   // list item
   const navList = navInfo.map((info, index) => (
     <li key={index} className="flex w-[220px] mx-2 h-[60px]">
-      <Link href={info.ruta} className="flex w-full h-[50px] m-auto text-primary rounded-lg font-medium hover:bg-tertiary" onClick={() => setOpen(false)}>
-        {/* <FontAwesomeIcon icon={info.icon} className="me-2" style={{width: '16px', height: '16px'}}/> */}
+      <Link href={info.ruta} className="flex w-full h-[50px] m-auto text-primary rounded-lg font-medium hover:bg-tertiary" 
+            onClick={() => setOpen(false)}>
         <p className="m-auto"> {info.nombre} </p>
       </Link>
     </li>
   ));
 
   return (
-    <div className="">
-
-      {/* Desktop: Menu */}
-      <div className="hidden md:flex flex-col md:flex-row w-full h-[60px] bg-white left-0 top-0 z-20">
-        {/* Logo */}
-        <div className="flex h-[60px] w-1/4">
+    <div>
+      {/* 1-Menú Escritorio */}
+      <div className="hidden md:flex flex-col md:flex-row w-full h-[60px] bg-quaternary left-0 top-0 z-20 ">
+        {/* 1.1-Logo */}
+        <div className="flex h-[60px] w-[200px]">
           <Link href="/" className="m-auto">
-            <h1 className="text-2xl font-bold text-blue-600">NUTRIAPP</h1>
+            <h1 className="text-xl font-bold text-green-600">
+              NUTRIAPP
+            </h1>
           </Link>
         </div>
-        {/* Menú */}
+        {/* 1.2-Opciones menú */}
         <nav className="flex w-3/4 justify-end h-[60px]">
-          <ul className="flex flex-row h-[60px] ">
+          {/* <ul className="flex flex-row h-[60px] ">
             {navList}
-          </ul>
+          </ul> */}
         </nav>
       </div>
 
-      {/* Movil: Bar*/}
-      <div className="flex md:hidden items-center justify-between bg-white border-b border-gray-300 px-4 py-3 fixed top-0 left-0 right-0 z-30">
-        <h1 className="text-xl font-bold text-blue-600">NUTRIAPP</h1>
+      {/* 2-Menu Movil - Cerrado*/}
+      <div className="flex md:hidden items-center justify-between bg-green-600 border-b border-gray-300 px-4 py-3 fixed top-0 left-0 right-0 z-30">
+        <h1 className="text-xl font-bold text-white">NUTRIAPP</h1>
         <button
-          className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="p-2 rounded text-white focus:outline-none focus:ring-2 focus:ring-green-500"
           onClick={() => setOpen((o) => !o)}
           aria-label="Abrir menú"
         >
@@ -58,9 +61,9 @@ export function NavbarHome() {
         </button>
       </div>
 
-      {/* Movil: Vista completa - menu + bar*/}
+      {/* 3-Menu Movil - Abierto*/}
       {open && (
-        <div className="border border-red-500 fixed inset-0 bg-black bg-opacity-30 z-40" onClick={() => setOpen(false)} />
+        <div className="fixed inset-0 bg-black bg-opacity-30 z-40" onClick={() => setOpen(false)} />
       )}
 
       {/* Movil: Menu*/}
@@ -69,9 +72,9 @@ export function NavbarHome() {
         style={{ boxShadow: open ? "2px 0 8px rgba(0,0,0,0.08)" : undefined }}
       >
         <div className="p-6 border-b border-gray-300 flex items-center justify-between">
-          <h1 className="text-xl font-bold text-blue-600">NUTRIAPP</h1>
+          <h1 className="text-xl font-bold text-green-600">NUTRIAPP</h1>
           <button
-            className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
             onClick={() => setOpen(false)}
             aria-label="Cerrar menú"
           >

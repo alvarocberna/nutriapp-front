@@ -40,22 +40,22 @@ export function FormNuevoPaciente() {
 
         {/* rut */}
         <InputOutlined label="Rut" name="rut" type="number" register={register} rules={{ required: true, minLength: {value: 7, message: 'Rut demasiado corto'}, maxLength: {value: 8, message: 'Rut demasiado largo'} }}/>
-        {errors.rut && <span className="text-red-700 text-sm">{errors.rut.message}</span>}
+        {errors.rut && <span className="text-red-400 text-sm">{errors.rut.message}</span>}
 
         {/* dv_rut */}
         <InputOutlined label="DV-Rut" name="dv_rut" type="text" register={register} rules={{ required: true, maxLength: {value: 1, message: 'Largo exedido'} }}/>
-        {errors.dv_rut && <span className="text-red-700 text-sm">{errors.dv_rut.message}</span>}
+        {errors.dv_rut && <span className="text-red-400 text-sm">{errors.dv_rut.message}</span>}
 
         {/* primer nombre */}
         <InputOutlined label="Primer nombre" name="nombre_primero" type="text" register={register} rules={{ required: 'Campo requerido' }}/>
-        {errors.nombre_primero && <span className="text-red-700 text-sm">{errors.nombre_primero.message}</span>}
+        {errors.nombre_primero && <span className="text-red-400 text-sm">{errors.nombre_primero.message}</span>}
 
         {/* segundo nombre */}
         <InputOutlined label="Segundo nombre" name="nombre_segundo" type="text" register={register} rules={{ required: false }}/>
 
         {/* appellido paterno */}
         <InputOutlined label="Apellido paterno" name="apellido_paterno" type="text" register={register} rules={{ required: 'Campo requerido' }}/>
-        {errors.apellido_paterno && <span className="text-red-700 text-sm">{errors.apellido_paterno.message}</span>}
+        {errors.apellido_paterno && <span className="text-red-400 text-sm">{errors.apellido_paterno.message}</span>}
         
         {/* Apellido materno */}
         <InputOutlined label="Apellido materno" name="apellido_materno" type="text" register={register} rules={{ required: false }}/>
@@ -85,14 +85,14 @@ export function FormNuevoPaciente() {
 
         {/* correo */}
         <InputOutlined label="Correo" name="correo" type="email" register={register} rules={{ required: 'Campo requerido' }}/>
-        {errors.correo && <span className="text-red-700 text-sm">Campo requerido</span>}
+        {errors.correo && <span className="text-red-400 text-sm">Campo requerido</span>}
 
         {/* celular */}
         <InputOutlined label="Celular" name="celular" type="number" register={register} rules={{ required: false }}/>
 
         {/* fecha nacimiento */}
         <InputOutlined label="Fecha nacimiento" name="fecha_nacimiento" type="date" register={register} rules={{ required: 'Campo requerido' }}/>
-        {errors.fecha_nacimiento && <span className="text-red-700 text-sm">Campo requerido</span>}
+        {errors.fecha_nacimiento && <span className="text-red-400 text-sm">Campo requerido</span>}
 
        <div className='w-1/2 h-[40px] mx-auto mt-10'>
             <input className='primary-btn' type='submit' value='Crear'/>
