@@ -28,7 +28,7 @@ export function NavbarHome() {
   ));
 
   return (
-    <div>
+    <div className="">
       {/* 1-Menú Escritorio */}
       <div className="hidden md:flex flex-col md:flex-row w-full h-[60px] bg-quaternary left-0 top-0 z-20 ">
         {/* 1.1-Logo */}
@@ -65,8 +65,6 @@ export function NavbarHome() {
       {open && (
         <div className="fixed inset-0 bg-black bg-opacity-30 z-40" onClick={() => setOpen(false)} />
       )}
-
-      {/* Movil: Menu*/}
       <div
         className={`fixed top-0 left-0 h-full w-[75vw] max-w-xs bg-white border-r border-gray-300 z-50 transform transition-transform duration-200 ease-in-out md:hidden ${open ? "translate-x-0" : "-translate-x-full"}`}
         style={{ boxShadow: open ? "2px 0 8px rgba(0,0,0,0.08)" : undefined }}

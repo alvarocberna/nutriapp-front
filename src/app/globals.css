@@ -12,23 +12,18 @@
   --color-secondary: #eec07c;
 }
 
-.primaryy{
-  color: var(--color-primary);
-}
-
-@theme inline {
+/* definimos variables con tailwind */
+@theme inline { 
   --color-background: var(--background);
-  /* --color-foreground: var(--foreground); */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #f6f6fd;
-    /* --foreground: #ededed; */
   }
-}
+} */
 
 body {
   background: var(--background);
@@ -36,82 +31,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 } 
 
-/* NavMenu Component Styles */
-/* .nav-menu-container {
-  max-width: 480px;
-  width: 100%;
-  color: rgba(54, 54, 182, 1);
-  margin: 0 auto;
-  font: 400 24px Inter, -apple-system, Roboto, Helvetica, sans-serif;
-}
-
-.nav-background {
-  background-color: rgba(255, 255, 255, 1);
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 68px 0 388px;
-  border: 3px solid rgba(54, 54, 182, 1);
-}
-
-.logo-header {
-  font-size: 30px;
-  font-weight: 700;
-  margin-left: 39px;
-}
-
-.menu-item-wrapper {
-  align-self: stretch;
-  display: flex;
-  margin-top: 46px;
-  width: 100%;
-  align-items: stretch;
-  white-space: nowrap;
-}
-
-.menu-indicator {
-  background-color: rgba(54, 54, 182, 1);
-  display: flex;
-  width: 10px;
-  flex-shrink: 0;
-  height: 63px;
-}
-
-.active-menu-item {
-  background-color: rgba(54, 54, 182, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: 0;
-  width: fit-content;
-  padding: 17px 29px;
-}
-
-.menu-list {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 26px 0 -78px 36px;
-}
-
-.menu-item {
-  align-self: stretch;
-  margin-top: 43px;
-}
-
-.menu-item:first-child {
-  margin-top: 0;
-}
-
-.menu-item-exit {
-  margin-top: 51px !important;
-}  */
-
-/* estilos hechos por mi ! */
+/* estilos personalizados */
 
 .btn-hover{
   transition: 0.9s;

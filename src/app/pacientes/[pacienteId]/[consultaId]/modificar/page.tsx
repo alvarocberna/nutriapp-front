@@ -4,15 +4,16 @@ import { useParams } from "next/navigation";
 //react
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useForm, FormProvider, SubmitHandler } from "react-hook-form" 
+import { useForm, FormProvider } from "react-hook-form" 
+// import {SubmitHandler} from 'react-hook-form';
 //fontawesome
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import { faClipboardList, faPerson, faCalculator, faCarrot, faCheck, faCircle } from '@fortawesome/free-solid-svg-icons'
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+// import { faClipboardList, faPerson, faCalculator, faCarrot, faCheck, faCircle } from '@fortawesome/free-solid-svg-icons'
 //shared
 import {ProfessionalCont, TitleSec} from '@/shared'
 //features
 import {Anamnesis, Mediciones, Requerimientos, Planificacion} from '@/features';
-import {ConsultaService, CreateFullConsultaForm, UpdateFullConsultaForm, UpdateMedicionesForm} from '@/features';
+import {ConsultaService, UpdateFullConsultaForm, UpdateMedicionesForm} from '@/features';
 import {ConsultaEntity} from "@/features";
 //app
 import '../../../../globals.css'

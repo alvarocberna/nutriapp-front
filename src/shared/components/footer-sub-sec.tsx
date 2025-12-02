@@ -1,13 +1,13 @@
 
-interface ContProps {
-  height?: string // 👈 Nueva prop opcional
+interface Props {
+    children?: React.ReactNode
+    height?: string //
 }
 
-export function FooterSubSec({height = '25px' }: ContProps){
+export function FooterSubSec({children, height = '25px' }: Props){
     return(
-        <div    
-            className= {`h-[${height}] w-full`} 
-        >
+        <div className={`h-[${height}] w-full`}>
+            {children}
         </div>
     )
 }

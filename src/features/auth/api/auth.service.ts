@@ -1,5 +1,5 @@
 
-import {apiFetch} from "../../../shared/api/client"
+import {apiFetch} from "@/shared/api/client"
 
 interface IFormInput {
   correo: string

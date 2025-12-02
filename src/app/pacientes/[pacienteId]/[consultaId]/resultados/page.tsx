@@ -3,15 +3,15 @@
 import { useParams } from "next/navigation";
 //react
 import { useState, useEffect } from "react";
-import { useForm, FormProvider, SubmitHandler } from "react-hook-form" 
+// import { useForm, FormProvider, SubmitHandler } from "react-hook-form" 
 //fontawesome
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import { faClipboardList, faPerson, faCalculator, faCarrot, faCheck, faCircle } from '@fortawesome/free-solid-svg-icons'
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+// import { faClipboardList, faPerson, faCalculator, faCarrot, faCheck, faCircle } from '@fortawesome/free-solid-svg-icons'
 //shared
 import {ProfessionalCont, TitleSec} from '@/shared'
 //features
 import {ConsultaService, UsuarioService} from '@/features';
-import {ConsultaEntity, MedicionEntity} from "@/features";
+import {ConsultaEntity} from "@/features";
 import { Usuario } from "@/features/usuario/types/usuario";
 import {GraphResumen, GraphCompCorpPorc, GraphCompCorpKg, GraphPerimetros, GraphPliegues} from '@/features'
 //app

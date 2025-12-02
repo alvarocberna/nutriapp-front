@@ -10,29 +10,12 @@ import { faPlus, faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
 //shared
 import {ProfessionalCont, TitleSec, HeadSubSec, RowSubSec, ContSubSec, FooterSubSec} from '@/shared'
 //featured
-import { UsuarioService } from '@/features/usuario/api/usuario.api';
+import { UsuarioService } from '@/features/usuario/api/usuario.service';
 import {Usuario} from '@/features/usuario/types/usuario';
 //css
 import '../globals.css'
-
-//ciclo de vida de este componente
-/*
-1-Ejecución del componente: Se ejecuta la fn Ficha() donde:
---->Se inicializan los estados.
---->Se define useEffect (pero no se ejecuta aun)
---->Se calcula listaPaciente con usuario que por el momento es un [] vacío
---->En resumen: se definen/inicializan los estados, funciones y variables.
-2-Primer render: Se renderiza el componente en pantalla con los datos que hay.
-  En este primer render el componente ListaPacientes estará vacío.
-3-Ejecución de useEffect: Después que el primer render se haya pintado en el DOM, React ejecuta el código
-  de useEffect, donde se actualiza el valor del estado 'usuarios'
-4-Segundo render: Al actualizar el estado de 'usuarios' se dispara un nuevo render, donde
-  se vuelve a llamar la función de Ficha(), ejecutandose, pero esta vez 'usuarios' ya contiene datos 
-  por lo que se vuelve a calcular 'listaPacientes' esta vez con los usuarios obtenidos.
-*/
-
  
-//Componente Principal Pacientes
+
 export default function Pacientes(){
 
   const [usuarios, setUsuarios] = useState<any>([]);

@@ -1,14 +1,14 @@
 'use client'
 //next
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useParams, useRouter } from "next/navigation";
 //react
 import React from 'react';
 import { useState } from 'react';
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form" 
 //fontawesome
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import { faClipboardList, faPerson, faCalculator, faCarrot, faCheck, faCircle } from '@fortawesome/free-solid-svg-icons'
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+// import { faClipboardList, faPerson, faCalculator, faCarrot, faCheck, faCircle } from '@fortawesome/free-solid-svg-icons'
 //toast
 import {toast} from 'react-toastify'
 //shared

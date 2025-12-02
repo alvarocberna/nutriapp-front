@@ -1,18 +1,18 @@
 
-export function GeneralCont(
-  {children,}: Readonly<{children: React.ReactNode;}>
-) {
-  return (
-    <div className="">
+// interface Props {
+//   children: React.ReactNode
+// }
 
-        {/* Navbar de 280px */}
-
-        {/* Sec Principal */}
-        <div className="h-full pb-10 flex bg-quaternary">
-            <div className='w-[80%] h-full mt-5 mb-10 mx-auto '>
-                {children}
-            </div>
-        </div>
-    </div>
-  )
-}
+// // export function GeneralCont({children,}: Readonly<{children: React.ReactNode;}>) {
+//   export function GeneralCont({children,}: Props) {
+//   return (
+//     <div className="">
+//         {/* Navbar de 280px */}
+//         <div className="h-full pb-10 flex bg-quaternary">
+//             <div className='w-[80%] h-full mt-5 mb-10 mx-auto '>
+//                 {children}
+//             </div>
+//         </div>
+//     </div>
+//   )
+// }

@@ -1,5 +1,3 @@
-const URL = 'http://localhost:3000';
-
 
 export async function apiFetch<T>(
     endpoint: string,
@@ -7,8 +5,9 @@ export async function apiFetch<T>(
     data?: any,
     credentials: RequestCredentials = 'include'
 ): Promise<T>{
-
-    const res = await fetch(`${URL}/${endpoint}`, { 
+    
+    const url = process.env.NEXT_PUBLIC_BACKEND_URL;
+    const res = await fetch(`${url}/${endpoint}`, { 
         method: method,
         credentials: credentials,
         headers: {'Content-Type': 'application/json'},
@@ -18,11 +17,11 @@ export async function apiFetch<T>(
     //si res.ok es false, significa que el servidor respondió con un error 400 o 500
     //en ese caso, throw interrumpe el flujo de la fn y termina inmediatamente, retornando un promesa rechazada
     if (!res.ok) {
-        //FUNCIONA
+        //útil si el server NO devuelve un JSON valido
         // const text = await res.text();
         // const errorData = JSON.parse(text);
         // throw new Error(errorData.message || errorData.error || `Error HTTP ${res.status}`)
-        //NO FUNCIONA - solo funciona si el servidor devuelve un JSON valido, sino, lanza error 
+        //útil SOLO si el server devuelve un JSON valido
         const errData = await res.json().catch(() => ({}));
         throw new Error(errData?.message || errData?.error || `Error HTTP ${res.status}`); 
     }

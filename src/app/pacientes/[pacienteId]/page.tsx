@@ -13,13 +13,13 @@ import {toast} from 'react-toastify'
 //shared
 import {ProfessionalCont, TitleSec, HeadSubSec, RowSubSec, DivSubSec, ContSubSec} from '../../../shared'
 //featured
-import { UsuarioService } from "@/features/usuario/api/usuario.api";
-import { ConsultaService } from "@/features/consulta/api/consulta.api";
+import { UsuarioService } from "@/features/usuario/api/usuario.service";
+import { ConsultaService } from "@/features/consulta/api/consulta.service";
 import { UsuarioEntity } from "@/features/usuario/types/usuario";
 import {ConsultaEntity} from "@/features";
 import FichaClinica from "@/features/usuario/components/paciente/ficha-clinica";
 //modals
-import {Modal} from '@/features/consulta/modals/delete-consulta.modal';
+import {Modal} from '@/features/consulta/modals/modal';
 
 
 export default function Paciente(){

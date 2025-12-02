@@ -11,7 +11,6 @@ import {AnimatedUser} from "@/features/landingpage/components/animation";
 import './globals.css'
 
 export default function Home() {
-
   return (
     <div>
       <HomeCont>

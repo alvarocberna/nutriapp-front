@@ -7,11 +7,11 @@ export * from './usuario/components/paciente/mediciones';
 export * from './usuario/components/paciente/planificacion';
 export * from './usuario/components/paciente/requerimientos';
 export * from './usuario/components/profesional/form-nuevo-profesional';
-export * from "./usuario/api/usuario.api";
+export * from "./usuario/api/usuario.service";
 export * from "./usuario/types/usuario";
 
 //consulta
-export * from "./consulta/api/consulta.api";
+export * from "./consulta/api/consulta.service";
 export * from "./consulta/types/consulta";
 export * from "./consulta/dtos/create-consulta.dto";
 export * from "./consulta/dtos/update-consulta.dto";

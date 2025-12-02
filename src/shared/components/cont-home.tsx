@@ -1,13 +1,13 @@
 //shared
 import {NavbarHome} from '@/shared/components/navbar-home';
 
-interface HomeContProps {
+interface Props {
   children: React.ReactNode
   widthInner?: string
   heightInner?: string
 }
 
-export function HomeCont({ children, widthInner = '100%', heightInner = '100%' }: HomeContProps) {
+export function HomeCont({ children, widthInner = '100%', heightInner = '100%' }: Props) {
   return (
     <div className="">
         {/* 1-Navbar de 280px */}

@@ -1,15 +1,14 @@
 
-interface ContProps {
+interface Props {
   children: React.ReactNode
-  width?: string // 👈 Nueva prop opcional
+  width?: string 
+  minHeight?: string
 }
 
-export function HeadSubSec({ children, width = '100%' }: ContProps){
+export function HeadSubSec({ children, width = '100%', minHeight = '80px' }: Props){
     return(
-        <div 
-            className= {`w-[${width}] flex justify-between items-center`} 
-            style={{minHeight: '80px'}} 
-        >
+        <div className={`w-[${width}] flex justify-between items-center`}
+                style={{minHeight: minHeight}}>
             {children}
         </div>
     )
