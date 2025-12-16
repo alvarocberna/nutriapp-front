@@ -1,6 +1,6 @@
 'use client'
 //next
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 //react
 import React from 'react';
 import { useState, useEffect } from 'react';
@@ -15,6 +15,8 @@ import {ProfessionalCont, TitleSec} from '@/shared'
 import {Anamnesis, Mediciones, Requerimientos, Planificacion} from '@/features';
 import {ConsultaService, UpdateFullConsultaForm, UpdateMedicionesForm} from '@/features';
 import {ConsultaEntity} from "@/features";
+//toastify
+import { toast } from "react-toastify";
 //app
 import '../../../../globals.css'
 
@@ -30,6 +32,8 @@ export default function ConsultaAnterior(){
     const [perimetrosId, setPerimetrosId] = useState<number>(0);
     const [diametrosId, setDiametrosId] = useState<number>(0);
     const [resultadosId, setResultadosId] = useState<number>(0);
+    const router = useRouter();
+    const id = useParams<{pacienteId: string}>().pacienteId;
 
     const methods = useForm<UpdateFullConsultaForm>({
         defaultValues: {
@@ -92,9 +96,14 @@ export default function ConsultaAnterior(){
     }, [pacienteId, consultaId, reset])
 
     const onSubmit = (data: UpdateFullConsultaForm) =>  {
-        console.log("Datos completos:", data);
-        // Aquí llamas a tu servicio/endpoint
-        ConsultaService.updateConsulta({pacienteId, consultaId, medicionId, nroMedicion, basicasId, plieguesId, perimetrosId, diametrosId, resultadosId, data});
+        try{
+            ConsultaService.updateConsulta({pacienteId, consultaId, medicionId, nroMedicion, basicasId, plieguesId, perimetrosId, diametrosId, resultadosId, data});
+            toast.success('Consulta guardada con éxito');
+            router.push(`/pacientes/${id}`);
+        }catch(error){
+            console.error("Error al guardar la consulta:", error);
+            toast.error('Error al guardar la consulta');
+        }
     };
 
     const [etapa, setEtapa] = useState(1);

@@ -9,7 +9,7 @@ import {FormNuevoProfesional} from "@/features/usuario/components/profesional/fo
 export default function Registro(){
     return(
         <HomeCont>
-            <div className="m-auto w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] mt-25 md:mt-5 border mb-10">
+            <div className="m-auto w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] mt-25 md:mt-5 mb-10">
                 <ContSubSec>
                     <HeadSubSec>
                         <TitleSubSec title="Registro" width="90%"/>

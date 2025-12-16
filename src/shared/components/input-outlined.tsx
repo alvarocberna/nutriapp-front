@@ -20,6 +20,7 @@ export function InputOutlined({ label, name, type = "text", register, rules, def
         className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-800 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:focus:border-blue-primary focus:outline-none focus:ring-0 focus:border-primary peer"
         placeholder=" "
         defaultValue={defaultValue}
+        {...((type === "number") ? { step: "0.1" } : {})}
       />
       <label
         htmlFor={name}

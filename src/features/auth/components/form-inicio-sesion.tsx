@@ -25,7 +25,6 @@ export function InicioSesionForm() {
       toast.success("Login exitos");
       router.push("/pacientes");
     }catch(error: any){
-      //esto imprime 'error en la petición'
       toast.error(error.message || 'usuario no encontrado' );
     }
   }
